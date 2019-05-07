@@ -1,0 +1,289 @@
+{
+    "title": "PatientView",
+    "description": "The recommended REST API endpoints to be used when integrating with PatientView",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/patientview.org/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.patientview.org/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "logIn": {
+            "main": "./lib/actions/logIn.js",
+            "title": "Log In",
+            "description": "Authenticate using username and password, returns token, which must be added to X-Auth-Token in header of all future requests",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/logIn.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "logOut": {
+            "main": "./lib/actions/logOut.js",
+            "title": "Log Out",
+            "description": "Log Out",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/logOut.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getBasicUserInformation": {
+            "main": "./lib/actions/getBasicUserInformation.js",
+            "title": "Get Basic User Information",
+            "description": "Once logged in and have a token, get basic user information including group role membership",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getBasicUserInformation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getBasicPatientDetails": {
+            "main": "./lib/actions/getBasicPatientDetails.js",
+            "title": "Get Basic Patient Information",
+            "description": "Given a User ID, get basic patient information for a user from clinical data stored in FHIR",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getBasicPatientDetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientManagementDiagnoses": {
+            "main": "./lib/actions/getPatientManagementDiagnoses.js",
+            "title": "getPatientManagementDiagnoses",
+            "description": "getPatientManagementDiagnoses",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientManagementDiagnoses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientManagementLookupTypes": {
+            "main": "./lib/actions/getPatientManagementLookupTypes.js",
+            "title": "getPatientManagementLookupTypes",
+            "description": "getPatientManagementLookupTypes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientManagementLookupTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "validatePatientManagement": {
+            "main": "./lib/actions/validatePatientManagement.js",
+            "title": "validatePatientManagement",
+            "description": "validatePatientManagement",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/validatePatientManagement.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientManagement": {
+            "main": "./lib/actions/getPatientManagement.js",
+            "title": "getPatientManagement",
+            "description": "getPatientManagement",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientManagement.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "savePatientManagement": {
+            "main": "./lib/actions/savePatientManagement.js",
+            "title": "savePatientManagement",
+            "description": "savePatientManagement",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/savePatientManagement.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "savePatientManagementSurgeries": {
+            "main": "./lib/actions/savePatientManagementSurgeries.js",
+            "title": "savePatientManagementSurgeries",
+            "description": "savePatientManagementSurgeries",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/savePatientManagementSurgeries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAvailableObservationHeadings": {
+            "main": "./lib/actions/getAvailableObservationHeadings.js",
+            "title": "Get Available Observations Types For a User",
+            "description": "Given a User ID retrieve a list of available observation types for that user (where they have observation data).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAvailableObservationHeadings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getObservationsByCodes": {
+            "main": "./lib/actions/getObservationsByCodes.js",
+            "title": "Get Observations of Multiple Types For a User",
+            "description": "Given a User ID and search parameters, retrieve a page of observations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getObservationsByCodes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getObservationsByCode": {
+            "main": "./lib/actions/getObservationsByCode.js",
+            "title": "Get Observations of a Certain Type For a User",
+            "description": "Given a User ID and observation code, retrieve all observations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getObservationsByCode.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientEnteredObservationsByCode": {
+            "main": "./lib/actions/getPatientEnteredObservationsByCode.js",
+            "title": "Get patient entered Observations of a Certain Type For a User",
+            "description": "Given a User ID and observation code, retrieve patient entered observations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientEnteredObservationsByCode.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPatientEnteredObservationHeadings": {
+            "main": "./lib/actions/getPatientEnteredObservationHeadings.js",
+            "title": "Get Available Patient Entered Observations Types For a User",
+            "description": "Given a User ID retrieve a list of available observation types for that user (where they have patient entered observation data).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPatientEnteredObservationHeadings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

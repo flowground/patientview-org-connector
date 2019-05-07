@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "code": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
